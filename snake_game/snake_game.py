@@ -914,8 +914,8 @@ class Game:
                         # Handle menu selection based on current page
                         result = self.handle_menu_selection(current_page, selected_option, menu_pages)
                         
-                        # Check if we should exit the menu
-                        if result is False:
+                        # Check if we should exit the menu (for Start Game option)
+                        if result is False or (isinstance(result, tuple) and result[0] is False):
                             menu_open = False
                             continue
                             
@@ -995,7 +995,7 @@ class Game:
         
         if current_page == "main":
             if selected_option == 0:  # Start Game
-                return False, 0  # Close menu and start game
+                return False  # Close menu and start game
             elif selected_option == 1:  # Gameplay Settings
                 new_page = "gameplay"
                 new_option = 0
