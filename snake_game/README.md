@@ -1,22 +1,47 @@
-# Enhanced Snake Game
+# Ultimate Snake Game
 
-A feature-rich Snake game created with Python and Pygame.
+A feature-rich Snake game created with Python and Pygame, featuring modern graphics, special effects, and extensive customization options.
 
 ## Features
 
-- **Interactive Menu System** - Configure game settings before playing
-- **Multiple Difficulty Levels** - Easy, Medium, and Hard modes
-- **Special Food Types**:
-  - Regular Food (Red) - Adds 1 point and increases snake length
-  - Bonus Food (Gold) - Adds 3 points and increases snake length by 3
-  - Speed Up Food (Blue) - Temporarily increases snake speed
-  - Slow Down Food (Purple) - Temporarily decreases snake speed
-  - Shrink Food (Yellow) - Decreases snake length by 3
-- **Wall Modes** - Play with walls that end the game on collision, or wrap-around mode
+### Gameplay Features
+- **Multiple Difficulty Levels** - Choose from Easy, Medium, and Hard modes
+- **Progressive Difficulty** - Game gets harder as you level up
+- **Level System** - Advance through levels by collecting food
+- **Statistics Tracking** - Track your gameplay stats across multiple sessions
+- **High Score System** - Beat your previous best scores
+
+### Special Foods and Power-ups
+- **Regular Food (Red Apple)** - +1 point and length
+- **Bonus Food (Gold Star)** - +3 points and increases length by 3
+- **Speed Up Food (Blue Lightning)** - Temporarily increases snake speed
+- **Slow Down Food (Purple Clock)** - Temporarily decreases snake speed
+- **Shrink Food (Yellow Arrow)** - Decreases snake length by 3
+- **Ghost Food (Cyan)** - Pass through walls and your own body temporarily
+- **Double Score Food (Orange)** - Score twice as many points for a limited time
+- **Rainbow Food (Magenta)** - Changes snake to rainbow pattern
+- **Freeze Food (Gray Snowflake)** - Temporarily stops snake movement
+
+### Visual Features
 - **Dark Mode** - Play with a dark-themed interface
-- **High Score System** - Your high score is saved between game sessions
-- **Visual Indicators** - See active power-ups on screen
-- **Pause Functionality** - Pause the game anytime with 'P' key
+- **Particle Effects** - Visual effects when collecting food or game over
+- **Snake Styles** - Multiple visual styles for the snake (Classic, Gradient, Patterned)
+- **Food Animations** - Animated food with special effects
+- **Background Options** - Grid, Gradient, or Plain backgrounds
+- **Direction-Aware Snake Eyes** - Snake eyes follow its direction of movement
+
+### Interface
+- **Comprehensive Menu System** - Configure all aspects of the game
+- **Game Statistics** - View detailed stats about your gameplay
+- **Enhanced Pause Menu** - Pause anytime with multiple options
+- **Game Over Screen** - Detailed game over screen with final stats
+- **Visual Effect Timers** - See how long power-ups will last
+
+### Other Features
+- **Alternative Control Schemes** - Choose between Arrow keys or WASD
+- **Sound Effects** - Optional sound effects for game actions
+- **Extensive Customization** - Personalize your gameplay experience
+- **Time Tracking** - Keep track of your total play time
 
 ## Requirements
 
@@ -40,29 +65,34 @@ To run this game, you need to have Python and Pygame installed:
    python snake_game.py
    ```
 2. Use the menu to configure your game settings
-3. Control the snake using the arrow keys:
-   - Up arrow: Move up
-   - Down arrow: Move down
-   - Left arrow: Move left
-   - Right arrow: Move right
-4. Press 'P' to pause the game anytime
-5. Collect different food types to score points and trigger special effects
-6. Avoid hitting the walls (if wall mode is enabled) and your own snake body
-
-## Game Controls
-
-- **Arrow Keys**: Control snake direction
-- **P Key**: Pause/resume game
-- **Enter/Return**: Select menu option or restart after game over
-- **M Key**: Return to menu after game over
-- **Q Key**: Quit the game
+3. Control the snake using the arrow keys or WASD (depending on your settings):
+   - Arrow Keys/WASD: Move snake in the corresponding direction
+   - P: Pause/resume game
+   - M: Return to menu (during pause)
+   - ESC: Quit the game
+4. Collect different food types to score points and trigger special effects
+5. Avoid hitting the walls (if wall mode is enabled) and your own snake body
+6. Level up by collecting enough food to reach the target score
 
 ## Game Mechanics
 
 - The snake grows longer as it eats food
 - Different food types have different effects
-- The game gets progressively harder as your snake grows
 - Special effects are temporary and will expire after a few seconds
-- Your high score is automatically saved and displayed
+- The game gets progressively harder as you level up
+- Your high score and stats are automatically saved between sessions
+- Food will disappear after a while and respawn in a new location
 
-Enjoy playing!
+## Customization Options
+
+- **Difficulty**: Easy, Medium, Hard
+- **Wall Mode**: On/Off
+- **Special Foods**: On/Off
+- **Sound**: On/Off
+- **Particles**: On/Off
+- **Background Style**: Grid, None, Gradient
+- **Snake Style**: Classic, Gradient, Patterned
+- **Food Style**: Simple, Animated, Realistic
+- **Control Scheme**: Arrow keys, WASD
+
+Enjoy playing the Ultimate Snake Game!
