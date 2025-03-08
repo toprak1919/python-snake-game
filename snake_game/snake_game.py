@@ -1736,6 +1736,6 @@ async def main():
     game = Game()
     await game.game_loop()
 
-# Start the game
+# Start the game when run directly (not imported)
 if __name__ == "__main__":
     asyncio.run(main())
