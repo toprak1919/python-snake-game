@@ -912,7 +912,16 @@ class Game:
                         selected_option = (selected_option + 1) % len(menu_pages[current_page])
                     elif event.key == pygame.K_RETURN:
                         # Handle menu selection based on current page
-                        self.handle_menu_selection(current_page, selected_option, menu_pages)
+                        result = self.handle_menu_selection(current_page, selected_option, menu_pages)
+                        
+                        # Check if we should exit the menu
+                        if result is False:
+                            menu_open = False
+                            continue
+                            
+                        # Update current page and selected option
+                        if isinstance(result, tuple) and len(result) == 2:
+                            current_page, selected_option = result
                         
                         # Update menu options after selection
                         if current_page == "gameplay":
@@ -980,25 +989,28 @@ class Game:
             
     def handle_menu_selection(self, current_page, selected_option, menu_pages):
         """Handle menu selection based on current page"""
+        # Return the updated current_page and selected_option
+        new_page = current_page
+        new_option = selected_option
+        
         if current_page == "main":
             if selected_option == 0:  # Start Game
-                return False  # Close menu
+                return False, 0  # Close menu and start game
             elif selected_option == 1:  # Gameplay Settings
-                current_page = "gameplay"
-                selected_option = 0
+                new_page = "gameplay"
+                new_option = 0
             elif selected_option == 2:  # Visual Settings
-                current_page = "visuals"
-                selected_option = 0
+                new_page = "visuals"
+                new_option = 0
             elif selected_option == 3:  # Controls
-                current_page = "controls"
-                selected_option = 0
+                new_page = "controls"
+                new_option = 0
             elif selected_option == 4:  # Statistics
-                current_page = "stats"
-                selected_option = 0
+                new_page = "stats"
+                new_option = 0
             elif selected_option == 5:  # Quit
                 pygame.quit()
                 sys.exit()
-                
         elif current_page == "gameplay":
             if selected_option == 0:  # Difficulty
                 if self.settings.difficulty == "easy":
@@ -1015,8 +1027,8 @@ class Game:
             elif selected_option == 3:  # Sound
                 self.settings.toggle_sound()
             elif selected_option == 4:  # Back
-                current_page = "main"
-                selected_option = 1
+                new_page = "main"
+                new_option = 1
                 
         elif current_page == "visuals":
             if selected_option == 0:  # Dark Mode
@@ -1030,24 +1042,24 @@ class Game:
             elif selected_option == 4:  # Food Style
                 self.settings.cycle_food_style()
             elif selected_option == 5:  # Back
-                current_page = "main"
-                selected_option = 2
+                new_page = "main"
+                new_option = 2
                 
         elif current_page == "controls":
             if selected_option == 0:  # Control Scheme
                 self.settings.toggle_control_scheme()
             elif selected_option == 1:  # Back
-                current_page = "main"
-                selected_option = 3
+                new_page = "main"
+                new_option = 3
                 
         elif current_page == "stats":
             if selected_option == 8:  # Reset Statistics
                 self.reset_stats()
             elif selected_option == 9:  # Back
-                current_page = "main"
-                selected_option = 4
+                new_page = "main"
+                new_option = 4
                 
-        return current_page, selected_option
+        return new_page, new_option
         
     def format_time(self, seconds):
         """Format seconds into a readable time string"""
