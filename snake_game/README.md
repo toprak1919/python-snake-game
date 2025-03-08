@@ -1,6 +1,22 @@
-# Snake Game
+# Enhanced Snake Game
 
-A simple Snake game created with Python and Pygame.
+A feature-rich Snake game created with Python and Pygame.
+
+## Features
+
+- **Interactive Menu System** - Configure game settings before playing
+- **Multiple Difficulty Levels** - Easy, Medium, and Hard modes
+- **Special Food Types**:
+  - Regular Food (Red) - Adds 1 point and increases snake length
+  - Bonus Food (Gold) - Adds 3 points and increases snake length by 3
+  - Speed Up Food (Blue) - Temporarily increases snake speed
+  - Slow Down Food (Purple) - Temporarily decreases snake speed
+  - Shrink Food (Yellow) - Decreases snake length by 3
+- **Wall Modes** - Play with walls that end the game on collision, or wrap-around mode
+- **Dark Mode** - Play with a dark-themed interface
+- **High Score System** - Your high score is saved between game sessions
+- **Visual Indicators** - See active power-ups on screen
+- **Pause Functionality** - Pause the game anytime with 'P' key
 
 ## Requirements
 
@@ -23,20 +39,30 @@ To run this game, you need to have Python and Pygame installed:
    ```
    python snake_game.py
    ```
-2. Control the snake using the arrow keys:
+2. Use the menu to configure your game settings
+3. Control the snake using the arrow keys:
    - Up arrow: Move up
    - Down arrow: Move down
    - Left arrow: Move left
    - Right arrow: Move right
-3. Eat the red food to grow longer and increase your score
-4. Avoid hitting the walls or colliding with your own body
-5. If you lose, press 'C' to play again or 'Q' to quit
+4. Press 'P' to pause the game anytime
+5. Collect different food types to score points and trigger special effects
+6. Avoid hitting the walls (if wall mode is enabled) and your own snake body
 
-## Game Features
+## Game Controls
 
-- Snake grows when it eats food
-- Score display at the top left corner
-- Game over screen with options to quit or play again
-- Colorful graphics
+- **Arrow Keys**: Control snake direction
+- **P Key**: Pause/resume game
+- **Enter/Return**: Select menu option or restart after game over
+- **M Key**: Return to menu after game over
+- **Q Key**: Quit the game
+
+## Game Mechanics
+
+- The snake grows longer as it eats food
+- Different food types have different effects
+- The game gets progressively harder as your snake grows
+- Special effects are temporary and will expire after a few seconds
+- Your high score is automatically saved and displayed
 
 Enjoy playing!
