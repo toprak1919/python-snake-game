@@ -1,6 +1,6 @@
 # Ultimate Snake Game
 
-A feature-rich Snake game created with Python and Pygame, featuring modern graphics, special effects, and extensive customization options.
+A feature-rich Snake game created with Python and Pygame, featuring modern graphics, special effects, and extensive customization options. Now playable both on desktop and in web browsers!
 
 ## Features
 
@@ -94,5 +94,19 @@ To run this game, you need to have Python and Pygame installed:
 - **Snake Style**: Classic, Gradient, Patterned
 - **Food Style**: Simple, Animated, Realistic
 - **Control Scheme**: Arrow keys, WASD
+
+## Web Deployment
+
+This game can now be played directly in web browsers! No installation required for players.
+
+### For Players
+- Just visit the game's web page in a modern browser (Chrome, Firefox, Edge, Safari)
+- No downloads or plugins needed
+- Enjoy the full game experience online
+
+### For Developers
+- Deploy the game to itch.io, GitHub Pages, or any web server
+- Share with anyone via a simple URL
+- See the included `WEB_DEPLOYMENT_GUIDE.md` for detailed instructions
 
 Enjoy playing the Ultimate Snake Game!

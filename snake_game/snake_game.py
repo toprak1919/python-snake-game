@@ -5,6 +5,7 @@ import sys
 import os
 import math
 import json
+import asyncio
 from pygame import mixer
 
 # Initialize pygame
@@ -855,7 +856,7 @@ class Game:
         for y in range(0, DISPLAY_HEIGHT, GRID_SIZE):
             pygame.draw.line(self.display, grid_color, (0, y), (DISPLAY_WIDTH, y))
             
-    def show_menu(self):
+    async def show_menu(self):
         """Display game menu with multiple pages"""
         menu_open = True
         current_page = "main"  # main, gameplay, visuals, controls, stats
@@ -986,6 +987,9 @@ class Game:
             # Update display
             pygame.display.update()
             self.clock.tick(15)
+            
+            # Required for web compatibility
+            await asyncio.sleep(0)
             
     def handle_menu_selection(self, current_page, selected_option, menu_pages):
         """Handle menu selection based on current page"""
@@ -1179,7 +1183,7 @@ class Game:
                              [DISPLAY_WIDTH // 2 - option_text.get_width() // 2, 
                               120 + i * 35])
         
-    def game_over_screen(self):
+    async def game_over_screen(self):
         """Display game over screen with final stats and options"""
         # Update statistics
         self.update_stats(game_over=True)
@@ -1297,6 +1301,9 @@ class Game:
                         return True  # Return to game loop
             
             self.clock.tick(30)
+            
+            # Required for web compatibility
+            await asyncio.sleep(0)
         
     def reset_game(self):
         """Reset the game state"""
@@ -1426,10 +1433,10 @@ class Game:
                 if particle.update():  # If particle is expired
                     self.particles.remove(particle)
     
-    def game_loop(self):
+    async def game_loop(self):
         """Main game loop"""
         # Show menu first
-        self.show_menu()
+        await self.show_menu()
         
         # Reset game state
         self.reset_game()
@@ -1534,7 +1541,7 @@ class Game:
                 if self.snake.check_collision_with_walls():
                     if self.settings.sound_enabled:
                         game_over_sound.play()
-                    self.game_over_screen()
+                    await self.game_over_screen()
                     continue
             else:
                 self.snake.check_collision_with_walls(wrap_around=True)
@@ -1543,7 +1550,7 @@ class Game:
             if self.snake.check_collision_with_self():
                 if self.settings.sound_enabled:
                     game_over_sound.play()
-                self.game_over_screen()
+                await self.game_over_screen()
                 continue
             
             # Handle food collision
@@ -1573,6 +1580,9 @@ class Game:
             if adjusted_speed < 5:  # Minimum speed
                 adjusted_speed = 5
             self.clock.tick(adjusted_speed)
+            
+            # Required for web compatibility
+            await asyncio.sleep(0)
             
     def draw_pause_screen(self):
         """Draw the pause screen"""
@@ -1721,7 +1731,11 @@ class Game:
                 pygame.draw.rect(self.display, GRAY, [110, effect_y - 15, 100, 5])
                 pygame.draw.rect(self.display, FOODS[effect].color, [110, effect_y - 15, bar_width, 5])
 
+# Modified main function for web compatibility
+async def main():
+    game = Game()
+    await game.game_loop()
+
 # Start the game
 if __name__ == "__main__":
-    game = Game()
-    game.game_loop()
+    asyncio.run(main())
